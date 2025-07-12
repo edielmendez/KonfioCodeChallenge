@@ -17,28 +17,41 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import mx.com.edieltech.konfiocodechallenge.R
+import mx.com.edieltech.konfiocodechallenge.domain.models.DogModel
 import mx.com.edieltech.konfiocodechallenge.presentation.common.LightAndDarkPreview
 import mx.com.edieltech.konfiocodechallenge.presentation.screens.home.components.DogList
 import mx.com.edieltech.konfiocodechallenge.presentation.screens.home.fakedata.FakeDogList
+import mx.com.edieltech.konfiocodechallenge.presentation.screens.home.mvi.HomeEvent
 import mx.com.edieltech.konfiocodechallenge.ui.theme.KonfioCodeChallengeTheme
 
 @Composable
 fun HomeScreen(
-
+    viewModel: HomeViewModel = hiltViewModel()
 ){
-    HomeContent()
+    LaunchedEffect(Unit) {
+        viewModel.setEvent(
+            event = HomeEvent.GetDogs
+        )
+    }
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
+    HomeContent(
+        dogList = state.dogList
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeContent(
-
+    dogList: List<DogModel> = emptyList(),
 ){
     Scaffold(
         topBar = {
@@ -70,7 +83,7 @@ fun HomeContent(
         ){
             DogList(
                 modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal = 15.dp),
-                dogList = FakeDogList,
+                dogList = dogList,
                 onItemClick = {}
             )
         }

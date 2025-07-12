@@ -76,6 +76,9 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
+    //Retrofit
+    implementation(libs.retrofit2.converter.gson)
+    //implementation(libs.okhttp3.logging.interceptor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
