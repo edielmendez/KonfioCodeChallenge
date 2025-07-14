@@ -22,8 +22,8 @@ Android Code Challenge que implementa la API  [https://jsonblob.com/api/11515490
     <td>Exit</td>
   </tr>
   <tr>
-    <td><img src="/screenshots/light.jpg" width=270 height=380></td>
-    <td><img src="/screenshots/dark.jpg" width=270 height=380></td>
+    <td><img src="/screenshots/light.jpeg" width=270 height=380></td>
+    <td><img src="/screenshots/dark.jpeg" width=270 height=380></td>
     <td><img src="/screenshots/exit.jpeg" width=270 height=380></td>
   </tr>
  </table>
