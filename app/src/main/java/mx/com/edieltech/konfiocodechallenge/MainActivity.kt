@@ -19,7 +19,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KonfioCodeChallengeTheme {
-                MainNavGraph()
+                MainNavGraph(
+                    onExitApp = {
+                        finish()
+                    }
+                )
             }
         }
     }

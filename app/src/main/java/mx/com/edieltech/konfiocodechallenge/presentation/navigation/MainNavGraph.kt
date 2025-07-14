@@ -9,7 +9,8 @@ import mx.com.edieltech.konfiocodechallenge.presentation.screens.home.HomeScreen
 
 @Composable
 fun MainNavGraph(
-    startDestination: HomeRoute = HomeRoute
+    startDestination: HomeRoute = HomeRoute,
+    onExitApp: () -> Unit
 ){
 
     val navController = rememberNavController()
@@ -19,7 +20,9 @@ fun MainNavGraph(
         startDestination = startDestination
     ){
         composable<HomeRoute> { backStackEntry ->
-            HomeScreen()
+            HomeScreen(
+                onExitApp = onExitApp
+            )
         }
     }
 }

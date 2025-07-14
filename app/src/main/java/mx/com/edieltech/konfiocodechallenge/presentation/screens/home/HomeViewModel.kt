@@ -28,9 +28,8 @@ class HomeViewModel @Inject constructor(
     private fun getDogs(){
         getDogListUseCase()
             .catch {
-                Log.v("HomeViewModel", "catch " + it.message.toString())
+                setEffect { HomeEffect.ShowServiceError(it.message ?: "Unknow Error") }
             }.onEach { dogList ->
-                Log.v("HomeViewModel", "onEach $dogList")
                 setState {
                     copy(dogList = dogList)
                 }

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">KonfioCodeChallenge</string>
     <string name="home_title">Dogs We Love</string>
+    <string name="exit_app_title">Aviso</string>
+    <string name="exit_app_message">Estas seguro de salir de la aplicación</string>
+    <string name="confirm_button_text">Aceptar</string>
+    <string name="cancel_button_text">Cancelar</string>
 </resources>
